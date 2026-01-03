@@ -1,10 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  /* Day Mode */
-  --background: #F8FAFC; /* Light Ghost Grey */
-  --foreground: #334155; /* Slate Text */
-  --accent: #0D9488; /* Tale */
+  --background: #F8FAFC;
+  --foreground: #334155;
+  --accent: #0D9488;
+}
+
+.dark {
+  --background: #0F172A;
+  --foreground: #F1F5F9;
+  --accent: #2DD4BF;   
 }
 
 @theme inline {
@@ -16,17 +21,25 @@
   --font-base: var(--font-source-sans-3);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* Night Mode */
-    --background: #0F172A; /* Deep Navy */
-    --foreground: #F1F5F9; /* Off White */
-    --accent: #2DD4BF;     /* Bright Teal */
+@layer base {
+  * {
+    @apply border-foreground/10
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-source-sans-3);
+    @apply antialiased transition-colors duration-300;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-playfair);
+    color: var(--foreground);
+  }
+
+  ::selection {
+    background-color: var(--accent);
+    color: var(--background);
   }
 }
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-}
-

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import {Playfair_Display, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "next-themes";
+import Header from "@/components/Header";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -27,7 +29,12 @@ export default function RootLayout({
       <body
         className={`${playfair.variable} ${sourceSans.variable} font-base antialiased`}
       >
-        {children}
+        <ThemeProvider attribute="class">
+          <Header />
+          <main className="pt-16">
+            {children}
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   );
