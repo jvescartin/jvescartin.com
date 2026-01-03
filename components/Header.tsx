@@ -13,10 +13,6 @@ export default function Header() {
     setMounted(true);
   }, []);
 
-  if (!mounted) {
-    return null;
-  }
-
   return (
     <header className="fixed top-0 w-full z-50 border-b border-foreground/10 bg-background/80 backdrop-blur-md transition-colors duration-300">
       <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-4">
@@ -28,11 +24,18 @@ export default function Header() {
           className="group rounded-lg p-2 transition-colors hover:bg-foreground/5"
           aria-label="Toggle Theme"
         >
-          {theme === "dark" ? (
-            <Sun className="h-5 w-5 text-accent" />
-          ) : (
-            <Moon className="h-5 w-5 text-accent" />
-          )}
+          <div className="h-5 w-5">
+            {mounted ? (
+              theme === "dark" ? (
+                <Sun className="h-5 w-5 text-accent" />
+              ) : (
+                <Moon className="h-5 w-5 text-accent" />
+              )
+            ) : (
+              /* A placeholder div to keep the space while mounting */
+              <div className="h-5 w-5" />
+            )}
+          </div>
         </button>
       </div>
     </header>
