@@ -17,7 +17,7 @@ export default function Home() {
 
         {/* Text Content */}
         <h1 className="text-2xl font-semibold tracking-tight text-zinc-800 dark:text-zinc-100 md:text-4xl">
-          Can't wait to meet you soon!
+          Can&apos;t wait to meet you soon!
         </h1>
       </main>
     </div>

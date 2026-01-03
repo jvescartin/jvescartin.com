@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${playfair.variable} ${sourceSans.variable} font-sans antialiased`}
+        className={`${playfair.variable} ${sourceSans.variable} font-base antialiased`}
       >
         {children}
       </body>
