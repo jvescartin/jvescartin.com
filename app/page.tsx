@@ -1,25 +1,41 @@
+import { getSortedPostsData } from "@/lib/post";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 px-4 dark:bg-zinc-950">
-      <main className="flex flex-col items-center gap-8 text-center">
-        {/* Profile Image */}
-        <div className="relative h-40 w-40 overflow-hidden rounded-full border-4 border-white shadow-lg md:h-52 md:w-52">
-          <Image
-            src="/profile.jpg"
-            alt="Profile Picture"
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
+  const posts = getSortedPostsData();
 
-        {/* Text Content */}
-        <h1 className="text-2xl font-semibold tracking-tight text-zinc-800 dark:text-zinc-100 md:text-4xl">
-          Can&apos;t wait to meet you soon!
-        </h1>
-      </main>
+  return (
+   <div className="mx-auto max-w-5xl px-4 py-12">
+      <h2 className="font-accent text-3xl mb-8">Latest Learnings</h2>
+      
+      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {posts.map((post) => (
+          <Link href={`/blog/${post.slug}`} key={post.slug} className="group">
+            <article className="overflow-hidden rounded-xl border border-foreground/10 bg-background transition-all hover:shadow-lg hover:border-accent/30">
+              <div className="relative h-48 w-full">
+                <Image 
+                  src={post.image} 
+                  alt={post.title} 
+                  fill 
+                  className="object-cover transition-transform group-hover:scale-105"
+                />
+              </div>
+              <div className="p-5">
+                <span className="text-xs font-medium uppercase tracking-widest text-accent">
+                  {post.date}
+                </span>
+                <h3 className="font-accent mt-2 text-xl font-bold group-hover:text-accent transition-colors">
+                  {post.title}
+                </h3>
+                <p className="mt-2 line-clamp-2 text-sm text-foreground/70">
+                  {post.description}
+                </p>
+              </div>
+            </article>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }
