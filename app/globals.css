@@ -1,13 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Day Mode */
+  --background: #F8FAFC; /* Light Ghost Grey */
+  --foreground: #334155; /* Slate Text */
+  --accent: #0D9488; /* Tale */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
 
   --font-accent: var(--font-playfair);
   --font-base: var(--font-source-sans-3);
@@ -15,8 +18,10 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Night Mode */
+    --background: #0F172A; /* Deep Navy */
+    --foreground: #F1F5F9; /* Off White */
+    --accent: #2DD4BF;     /* Bright Teal */
   }
 }
 
