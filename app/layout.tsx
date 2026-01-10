@@ -25,9 +25,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${playfair.variable} ${sourceSans.variable} font-base antialiased suppressHydrationWarning`}
+        className={`${playfair.variable} ${sourceSans.variable} font-base antialiased`}
       >
         <ThemeProvider attribute="class">
           <Header />
