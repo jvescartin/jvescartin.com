@@ -3,6 +3,7 @@ import fs from "fs";
 import matter from "gray-matter";
 import Image from "next/image";
 import Markdown from "markdown-to-jsx";
+import Link from "next/link";
 
 
 
@@ -16,6 +17,25 @@ export default async function PostPage({ params}: { params: Promise<{ slug: stri
 
   return (
     <article className="mx-auto max-w-3xl px-4 py-20">
+      <nav className="mb-12">
+        <Link
+          href="/" 
+          className="group flex items-center gap-2 text-sm font-base uppercase tracking-[0.2em] text-foreground/50 transition-colors hover:text-accent"
+        >
+          <svg 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            stroke="currentColor" 
+            className="h-4 w-4 transition-transform group-hover:-translate-x-1"
+            strokeWidth="2.5" 
+            strokeLinecap="round" 
+            strokeLinejoin="round"
+          >
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+          </svg>
+          Back
+        </Link>
+      </nav>
       {/* Article Header */}
       <header className="mb-12">
         <h1 className="font-accent text-4xl font-bold md:text-5xl lg:text-6xl text-foreground">
