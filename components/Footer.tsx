@@ -1,6 +1,10 @@
-import { Github, Linkedin } from 'lucide-react';
+'use client';
+
+import { useTheme } from 'next-themes';
+import Image from 'next/image';
 
 export default function Footer() {
+  const { theme } = useTheme();
   return (
     <footer className="w-full border-t border-foreground/10 bg-background transition-colors duration-300">
       <div className="mx-auto max-w-5xl px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
@@ -16,20 +20,48 @@ export default function Footer() {
             href="https://linkedin.com/in/yourprofile" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="text-foreground/60 hover:text-accent transition-colors"
+            className="transition-opacity hover:scale-110"
             aria-label="LinkedIn"
           >
-            <Linkedin className="h-5 w-5" />
+            <Image
+              src={theme === "dark" ? "/linkedIn-white.png" : "/linkedIn-black.png"} 
+              alt="LinkedIn"
+              width={20} 
+              height={20}
+              className="object-contain"
+            />
           </a>
           <a 
-            href="https://github.com/yourusername" 
+            href="https://linkedin.com/in/yourprofile" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="text-foreground/60 hover:text-accent transition-colors"
-            aria-label="GitHub"
+            className="transition-opacity hover:scale-110"
+            aria-label="Github"
           >
-            <Github className="h-5 w-5" />
+            <Image
+              src={theme === "dark" ? "/github-white.png" : "/github-black.png"} 
+              alt="LinkedIn"
+              width={20} 
+              height={20}
+              className="object-contain"
+            />
           </a>
+          <a 
+            href="https://linkedin.com/in/yourprofile" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="transition-opacity hover:scale-110"
+            aria-label="X"
+          >
+            <Image
+              src={theme === "dark" ? "/x-white.png" : "/x-black.png"} 
+              alt="LinkedIn"
+              width={20} 
+              height={20}
+              className="object-contain"
+            />
+          </a>
+          
         </div>
 
       </div>
