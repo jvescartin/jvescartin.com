@@ -29,7 +29,7 @@ export default async function PostPage({ params}: { params: Promise<{ slug: stri
       </header>
 
       {/* Hero Image */}
-      <div className="relative mb-12 h-[300px] md:h-[450px] w-full overflow-hidden rounded-2xl border border-foreground/10 shadow-xl">
+      <div className="relative mb-12 h-75 md:h-122.5 w-full overflow-hidden rounded-2xl border border-foreground/10 shadow-xl">
         <Image src={data.image} alt={data.title} fill className="object-cover" priority />
       </div>
 
