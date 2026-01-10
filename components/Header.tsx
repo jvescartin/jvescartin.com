@@ -2,16 +2,9 @@
 
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
 
 export default function Header() {
   const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  // When mounted on client, now we can show the UI
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   return (
     <header className="fixed top-0 w-full z-50 border-b border-foreground/10 bg-background/80 backdrop-blur-md transition-colors duration-300">
@@ -25,16 +18,13 @@ export default function Header() {
           aria-label="Toggle Theme"
         >
           <div className="h-5 w-5">
-            {mounted ? (
+            {
               theme === "dark" ? (
                 <Sun className="h-5 w-5 text-accent" />
               ) : (
                 <Moon className="h-5 w-5 text-accent" />
               )
-            ) : (
-              /* A placeholder div to keep the space while mounting */
-              <div className="h-5 w-5" />
-            )}
+            }
           </div>
         </button>
       </div>

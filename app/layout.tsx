@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${playfair.variable} ${sourceSans.variable} font-base antialiased`}
+        className={`${playfair.variable} ${sourceSans.variable} font-base antialiased suppressHydrationWarning`}
       >
         <ThemeProvider attribute="class">
           <Header />

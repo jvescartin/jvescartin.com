@@ -7,10 +7,8 @@ import Markdown from "markdown-to-jsx";
 
 
 export default async function PostPage({ params}: { params: Promise<{ slug: string }> }) {
-  console.log("PostPage params:", params);
   const resolvedParams = await params;
   const { slug } = resolvedParams;
-  console.log("Rendering post:", slug);
 
   const fullPath = path.join(process.cwd(), 'content', `${slug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf-8');
