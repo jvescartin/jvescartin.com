@@ -86,6 +86,31 @@ export default async function PostPage({ params}: { params: Promise<{ slug: stri
                   </code>
                 ),
               },
+              // Handle lists
+              ul: {
+                component: ({ children }) => <ul className="list-disc pl-6 mb-6 text-lg leading-8">{children}</ul>,
+              },
+              li: {
+                component: ({ children }) => <li className="mb-2">{children}</li>,
+              },
+              // Style blockquotes
+              blockquote: {
+                component: ({ children }) => (
+                  <blockquote className="border-l-4 border-accent pl-4 italic text-foreground/70 my-6">
+                    {children}
+                  </blockquote>
+                ),
+              },
+              // Handle images in markdown
+               img: {
+                component: (props) => {
+                  return (
+                    <div className="relative my-6 overflow-hidden rounded-lg border border-foreground/10 shadow-md">
+                      <Image {...props} width={800} height={400} className="object-cover" alt={props.alt || ''} />
+                    </div>
+                  );
+                },
+              },
             },
           }}
         >
