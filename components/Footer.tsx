@@ -17,7 +17,7 @@ export default function Footer() {
         {/* Social Links */}
         <div className="flex items-center gap-6">
           <a 
-            href="https://linkedin.com/in/yourprofile" 
+            href="https://www.linkedin.com/in/j-escartin/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="transition-opacity hover:scale-110"
@@ -31,7 +31,7 @@ export default function Footer() {
               className="object-contain"
             />
           </a>
-          <a 
+          {/* <a 
             href="https://linkedin.com/in/yourprofile" 
             target="_blank" 
             rel="noopener noreferrer"
@@ -60,10 +60,8 @@ export default function Footer() {
               height={20}
               className="object-contain"
             />
-          </a>
-          
+          </a> */}
         </div>
-
       </div>
     </footer>
   );
