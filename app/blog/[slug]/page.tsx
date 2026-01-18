@@ -58,13 +58,16 @@ export default async function PostPage({ params}: { params: Promise<{ slug: stri
         <Markdown
           options={{
             overrides: {
-              // Map Markdown H2 to your Nordic font-accent
               h2: {
                 component: ({ children }) => (
                   <h2 className="font-accent text-3xl font-bold mt-12 mb-6 text-foreground">{children}</h2>
                 ),
               },
-              // Style links with your Nordic Teal accent
+              h3: {
+                component: ({ children }) => (
+                  <h3 className="font-accent text-2xl font-semibold mt-10 mb-5 text-foreground">{children}</h3>
+                ),
+              },
               a: {
                 component: ({ children, ...props }) => (
                   <a {...props} className="text-accent underline underline-offset-4 hover:opacity-80 transition-opacity">
@@ -72,13 +75,18 @@ export default async function PostPage({ params}: { params: Promise<{ slug: stri
                   </a>
                 ),
               },
-              // Style paragraphs for readability
               p: {
                 component: ({ children }) => (
                   <p className="mb-6 text-lg leading-8">{children}</p>
                 ),
               },
-              // Custom styling for code snippets
+              pre: {
+                component: ({ children }) => (
+                  <pre className="bg-foreground/5 p-4 rounded-lg border border-foreground/10 my-6 overflow-x-auto">
+                    {children}
+                  </pre>
+                ),
+              },
               code: {
                 component: ({ children, className }) => (
                   <code className={`${className} bg-foreground/5 px-1.5 py-0.5 rounded font-mono text-sm border border-foreground/10`}>
@@ -86,14 +94,15 @@ export default async function PostPage({ params}: { params: Promise<{ slug: stri
                   </code>
                 ),
               },
-              // Handle lists
               ul: {
                 component: ({ children }) => <ul className="list-disc pl-6 mb-6 text-lg leading-8">{children}</ul>,
               },
               li: {
                 component: ({ children }) => <li className="mb-2">{children}</li>,
               },
-              // Style blockquotes
+              ol: {
+                component: ({ children }) => <ol className="list-decimal pl-6 mb-6 text-lg leading-8">{children}</ol>,
+              },
               blockquote: {
                 component: ({ children }) => (
                   <blockquote className="border-l-4 border-accent pl-4 italic text-foreground/70 my-6">
@@ -101,8 +110,7 @@ export default async function PostPage({ params}: { params: Promise<{ slug: stri
                   </blockquote>
                 ),
               },
-              // Handle images in markdown
-               img: {
+              img: {
                 component: (props) => {
                   return (
                     <div className="relative my-6 overflow-hidden rounded-lg border border-foreground/10 shadow-md">

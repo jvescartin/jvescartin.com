@@ -52,15 +52,6 @@ Each of these components represented a potential source of the leak.
 
 ---
 
-Our workflows and automation system follows this general architecture:
-- Multiple orchestrator nodes that can each communicate with the database
-- Durable Functions handling complex, multi-step workflows
-- Various triggers and hooks responding to database events
-
-Each of these components represented a potential source of the leak.
-
----
-
 ## The Investigation Journey
 
 ### Hypothesis 1: Durable Functions Lifecycle Issues
